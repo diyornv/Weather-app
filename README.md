@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # Weather-app
-Weather app: city select, forecast, stats, dark mode.
 =======
 # React + Vite
 
