@@ -218,10 +218,6 @@ const DataVisualization = ({ data, loading, unit = "metric" }) => {
           );
         })}
       </svg>
-
-      <div className="mt-3 md:mt-4 text-xs text-gray-500 dark:text-gray-400 text-center">
-        Based on OpenWeatherMap API data
-      </div>
     </div>
   );
 };
