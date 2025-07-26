@@ -1,31 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
-const CITIES = ["London", "New York", "Tokyo", "Sydney", "Cairo"];
+const CitySelector = ({ currentCity, onChangeCity, error }) => {
+  const [search, setSearch] = useState("");
 
-const CitySelector = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (search.trim()) {
+      onChangeCity(search.trim());
+    }
+  };
+
   return (
-    <div className="w-full max-w-xs mx-auto">
-      <label htmlFor="city-search" className="block mb-2 text-sm font-medium text-[#212529]">
-        Shahar tanlang
+    <form
+      onSubmit={handleSubmit}
+      className="w-full max-w-xs mx-auto flex flex-col gap-2"
+    >
+      <label
+        htmlFor="city-search"
+        className="block text-sm font-medium text-[#212529] dark:text-[#f8f9fa]"
+      >
+        Select city
       </label>
       <input
         id="city-search"
         type="text"
-        placeholder="Qidiruv..."
-        className="w-full px-3 py-2 border border-gray-300 rounded-t-md focus:outline-none focus:ring-2 focus:ring-[#0d6efd] bg-white text-[#212529]"
-        disabled
+        placeholder="Enter city name..."
+        className="w-full rounded-md py-2 px-3 text-base border border-gray-300 dark:border-gray-600 bg-white dark:bg-[#212529] text-[#212529] dark:text-[#f8f9fa] focus:outline-none focus:ring-2 focus:ring-[#0d6efd]"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        autoComplete="off"
       />
-      <ul className="border border-t-0 border-gray-300 rounded-b-md bg-white divide-y divide-gray-100">
-        {CITIES.map((city) => (
-          <li
-            key={city}
-            className="px-3 py-2 cursor-pointer hover:bg-[#0d6efd]/10 text-[#212529]"
-          >
-            {city}
-          </li>
-        ))}
-      </ul>
-    </div>
+      <button
+        type="submit"
+        className="w-full py-2 rounded font-semibold bg-[#0d6efd] text-white hover:bg-[#0b5ed7] transition"
+      >
+        Search
+      </button>
+      {error && <div className="text-red-500 text-xs mt-1">{error}</div>}
+    </form>
   );
 };
 
