@@ -1,169 +1,169 @@
 # 🌤️ Weather App
 
-Istalgan shahar uchun ob-havo ma'lumotlarini ko'rsatadi. OpenWeatherMap API va mock service yordamida ishlaydi.
+Shows weather information for any city. Works with OpenWeatherMap API and mock service.
 
-## ✨ Xususiyatlar
+## ✨ Features
 
-- 🌍 **Dunyodagi istalgan shahar** uchun ob-havo ma'lumotlari
-- 🌡️ **Temperatura birliklari** (°C/°F) o'zgartirish
-- 🌙 **Dark/Light mode** qo'llab-quvvatlash
-- 📱 **Responsive dizayn** (mobile va desktop)
-- 📊 **5 kunlik prognoz** va statistika
-- 🎨 **Zamonaviy UI** Tailwind CSS bilan
-- 🚀 **Tezkor ishlash** Vite bilan
+- 🌍 **Weather data** for any city in the world
+- 🌡️ **Temperature units** (°C/°F) switching
+- 🌙 **Dark/Light mode** support
+- 📱 **Responsive design** (mobile and desktop)
+- 📊 **5-day forecast** and statistics
+- 🎨 **Modern UI** with Tailwind CSS
+- 🚀 **Fast performance** with Vite
 
-## 🛠️ Texnologiyalar
+## 🛠️ Technologies
 
 - **React 18** - Frontend framework
 - **Vite** - Build tool
 - **Tailwind CSS** - Styling
-- **React Icons** - Iconlar
-- **OpenWeatherMap API** - Ob-havo ma'lumotlari
+- **React Icons** - Icons
+- **OpenWeatherMap API** - Weather data
 - **Jest + Testing Library** - Testing
 
-## 📦 O'rnatish
+## 📦 Installation
 
-### Talablar
+### Requirements
 
 - Node.js 16+
-- npm yoki yarn
+- npm or yarn
 
-### Qadamlar
+### Steps
 
-1. **Loyihani klonlash:**
+1. **Clone the project:**
 
 ```bash
 git clone https://github.com/diyornv/Weather-app.git
 cd weather-app
 ```
 
-2. **Dependencelarni o'rnatish:**
+2. **Install dependencies:**
 
 ```bash
 npm install
 ```
 
-3. **Environment variable yaratish:**
-   `.env` faylini loyiha root papkasida yarating:
+3. **Create environment variable:**
+   Create `.env` file in project root:
 
 ```env
 VITE_OWM_API_KEY=your_openweathermap_api_key
 ```
 
-4. **Development server ishga tushirish:**
+4. **Start development server:**
 
 ```bash
 npm run dev
 ```
 
-5. **Brauzerda ochish:**
+5. **Open in browser:**
 
 ```
 http://localhost:5173
 ```
 
-## 🔑 API Key olish
+## 🔑 Get API Key
 
-1. [OpenWeatherMap](https://openweathermap.org/) ga ro'yxatdan o'ting
-2. API Keys bo'limiga o'ting
-3. Yangi API key yarating
-4. Emailingizni tasdiqlang
-5. API keyni `.env` faylga qo'shing
+1. Sign up at [OpenWeatherMap](https://openweathermap.org/)
+2. Go to API Keys section
+3. Create new API key
+4. Confirm your email
+5. Add API key to `.env` file
 
-## 📁 Loyiha strukturası
+## 📁 Project Structure
 
 ```
 src/
-├── components/          # React komponentlari
-│   ├── WeatherWidget.jsx      # Asosiy container
-│   ├── CitySelector.jsx       # Shahar tanlash
-│   ├── WeatherDisplay.jsx     # Hozirgi ob-havo
-│   ├── ForecastList.jsx       # 5 kunlik prognoz
-│   ├── DataVisualization.jsx  # Statistika chizma
-│   ├── SettingsPanel.jsx      # Sozlamalar
-│   ├── ErrorBoundary.jsx      # Xatolik ushlovchi
-│   └── TabSystem.jsx          # Tab navigatsiya
+├── components/          # React components
+│   ├── WeatherWidget.jsx      # Main container
+│   ├── CitySelector.jsx       # City selection
+│   ├── WeatherDisplay.jsx     # Current weather
+│   ├── ForecastList.jsx       # 5-day forecast
+│   ├── DataVisualization.jsx  # Statistics chart
+│   ├── SettingsPanel.jsx      # Settings
+│   ├── ErrorBoundary.jsx      # Error handler
+│   └── TabSystem.jsx          # Tab navigation
 ├── hooks/              # Custom hooks
-│   └── useWeatherData.js      # Ob-havo ma'lumotlari
+│   └── useWeatherData.js      # Weather data
 ├── context/            # React Context
 │   └── ThemeContext.jsx       # Dark/Light mode
-├── utils/              # Utility funksiyalar
+├── utils/              # Utility functions
 │   ├── api.js                 # OpenWeatherMap API
 │   ├── mockApi.js             # Mock service
-│   ├── tempUtils.js           # Temperatura konvertatsiya
-│   ├── statsUtils.js          # Statistika hisoblash
-│   ├── debounce.js            # Debounce funksiya
-│   └── throttle.js            # Throttle funksiya
-└── tests/              # Test fayllari
+│   ├── tempUtils.js           # Temperature conversion
+│   ├── statsUtils.js          # Statistics calculation
+│   ├── debounce.js            # Debounce function
+│   └── throttle.js            # Throttle function
+└── tests/              # Test files
     ├── useWeatherData.test.js
     ├── tempUtils.test.js
     ├── debounce.test.js
     └── WeatherDisplay.test.jsx
 ```
 
-## 🧩 Komponentlar
+## 🧩 Components
 
 ### WeatherWidget
 
-**Vazifa:** Asosiy container komponent
-**Props:** Yo'q
-**State:** useWeatherData hook orqali
+**Purpose:** Main container component
+**Props:** None
+**State:** Through useWeatherData hook
 
 ### CitySelector
 
-**Vazifa:** Shahar qidiruv va tanlash
+**Purpose:** City search and selection
 **Props:**
 
-- `currentCity` - Hozirgi shahar
-- `onChangeCity` - Shahar o'zgartirish funksiyasi
-- `error` - Xatolik xabari
+- `currentCity` - Current city
+- `onChangeCity` - City change function
+- `error` - Error message
 
 ### WeatherDisplay
 
-**Vazifa:** Hozirgi ob-havo ko'rsatish
+**Purpose:** Show current weather
 **Props:**
 
-- `city` - Shahar nomi
-- `weather` - Ob-havo ma'lumotlari
-- `unit` - Temperatura birligi
-- `loading` - Yuklanish holati
-- `error` - Xatolik
+- `city` - City name
+- `weather` - Weather data
+- `unit` - Temperature unit
+- `loading` - Loading state
+- `error` - Error
 
 ### ForecastList
 
-**Vazifa:** 5 kunlik prognoz ko'rsatish
+**Purpose:** Show 5-day forecast
 **Props:**
 
-- `forecast` - Prognoz ma'lumotlari
-- `loading` - Yuklanish holati
-- `unit` - Temperatura birligi
+- `forecast` - Forecast data
+- `loading` - Loading state
+- `unit` - Temperature unit
 
 ### SettingsPanel
 
-**Vazifa:** Sozlamalar boshqaruvi
+**Purpose:** Settings management
 **Props:**
 
-- `unit` - Temperatura birligi
-- `onToggleUnit` - Birlik o'zgartirish
-- `onRefresh` - Yangilash
-- `isMockEnabled` - Mock rejimi
-- `onToggleMock` - Mock rejimi o'zgartirish
-- `loading` - Yuklanish holati
+- `unit` - Temperature unit
+- `onToggleUnit` - Unit change
+- `onRefresh` - Refresh
+- `isMockEnabled` - Mock mode
+- `onToggleMock` - Mock mode change
+- `loading` - Loading state
 
 ## 🪝 Custom Hooks
 
 ### useWeatherData
 
-**Vazifa:** Ob-havo ma'lumotlarini boshqarish
-**Qaytaradi:**
+**Purpose:** Manage weather data
+**Returns:**
 
-- `state` - Hozirgi holat
-- `changeCity` - Shahar o'zgartirish
-- `toggleUnit` - Temperatura birligi o'zgartirish
-- `toggleMock` - Mock rejimi o'zgartirish
-- `clearError` - Xatolikni tozalash
+- `state` - Current state
+- `changeCity` - Change city
+- `toggleUnit` - Toggle temperature unit
+- `toggleMock` - Toggle mock mode
+- `clearError` - Clear error
 
-**State strukturası:**
+**State structure:**
 
 ```javascript
 {
@@ -177,116 +177,116 @@ src/
 }
 ```
 
-## 🔧 Utility Funksiyalar
+## 🔧 Utility Functions
 
 ### tempUtils.js
 
-- `celsiusToFahrenheit(c)` - °C dan °F ga
-- `fahrenheitToCelsius(f)` - °F dan °C ga
+- `celsiusToFahrenheit(c)` - °C to °F
+- `fahrenheitToCelsius(f)` - °F to °C
 
 ### statsUtils.js
 
-- `getDailyAverages(forecastList)` - Kunlik o'rtachalar
+- `getDailyAverages(forecastList)` - Daily averages
 - `getWeatherStats(forecastList)` - Min/max/average
-- `sortWeatherData(forecastList)` - Sana bo'yicha sort
-- `getDetailedDailyAverages(forecastList)` - Batafsil kunlik ma'lumotlar
+- `sortWeatherData(forecastList)` - Sort by date
+- `getDetailedDailyAverages(forecastList)` - Detailed daily data
 
 ### debounce.js
 
-- `debounce(func, delay)` - Umumiy debounce
-- `debouncedSearch(searchFunc)` - Qidiruv uchun debounce
+- `debounce(func, delay)` - General debounce
+- `debouncedSearch(searchFunc)` - Search debounce
 
-## 🎨 UI/UX Xususiyatlari
+## 🎨 UI/UX Features
 
-### Responsive Dizayn
+### Responsive Design
 
-- **Mobile:** 2 ustunli grid, kichik cardlar
-- **Desktop:** 5 ustunli grid, katta cardlar
+- **Mobile:** 2-column grid, small cards
+- **Desktop:** 5-column grid, large cards
 - **Breakpoint:** 768px (md)
 
 ### Dark/Light Mode
 
-- **Light:** `#f8f9fa` fon, `#212529` text, `#0d6efd` accent
-- **Dark:** `#212529` fon, `#f8f9fa` text, `#0d6efd` accent
-- **Persistence:** localStorage da saqlanadi
+- **Light:** `#f8f9fa` background, `#212529` text, `#0d6efd` accent
+- **Dark:** `#212529` background, `#f8f9fa` text, `#0d6efd` accent
+- **Persistence:** Saved in localStorage
 
-### Animatsiyalar
+### Animations
 
-- **Tab o'zgartirish:** Fade in/out (300ms)
-- **Theme o'zgartirish:** Smooth transition
+- **Tab switching:** Fade in/out (300ms)
+- **Theme switching:** Smooth transition
 - **Loading states:** Skeleton loading
 
 ## 🧪 Testing
 
-### Test fayllari
+### Test files
 
-- `useWeatherData.test.js` - Custom hook testi
-- `tempUtils.test.js` - Temperatura konvertatsiya
-- `debounce.test.js` - Debounce funksiya
-- `WeatherDisplay.test.jsx` - Snapshot testi
+- `useWeatherData.test.js` - Custom hook test
+- `tempUtils.test.js` - Temperature conversion
+- `debounce.test.js` - Debounce function
+- `WeatherDisplay.test.jsx` - Snapshot test
 
-### Test ishga tushirish
+### Run tests
 
 ```bash
 npm test
 ```
 
-## 🚀 Performance Optimizatsiyasi
+## 🚀 Performance Optimization
 
 ### 1. Code Splitting
 
-- Komponentlar alohida import qilinadi
-- Lazy loading qo'llanilgan
+- Components imported separately
+- Lazy loading used
 
 ### 2. Memoization
 
-- `useCallback` - Funksiyalar uchun
-- `useMemo` - Hisoblashlar uchun
-- `React.memo` - Komponentlar uchun
+- `useCallback` - For functions
+- `useMemo` - For calculations
+- `React.memo` - For components
 
-### 3. API Optimizatsiyasi
+### 3. API Optimization
 
-- **Debounce:** Qidiruv input uchun (300ms)
-- **Throttle:** API chaqiruvlar uchun (5s)
-- **Mock service:** Development uchun
+- **Debounce:** For search input (300ms)
+- **Throttle:** For API calls (5s)
+- **Mock service:** For development
 
-### 4. Bundle Optimizatsiyasi
+### 4. Bundle Optimization
 
-- **Vite:** Tezkor build va HMR
-- **Tree shaking:** Foydalanilmagan kod olib tashlanadi
+- **Vite:** Fast build and HMR
+- **Tree shaking:** Unused code removed
 - **Minification:** Production build
 
-## 🐛 Xatoliklar va yechimlar
+## 🐛 Errors and Solutions
 
-### API Xatoliklari
+### API Errors
 
-- **401 Unauthorized:** API key noto'g'ri yoki tasdiqlanmagan
-- **404 Not Found:** Shahar topilmadi
-- **429 Too Many Requests:** API limit oshib ketdi
+- **401 Unauthorized:** Wrong API key or not confirmed
+- **404 Not Found:** City not found
+- **429 Too Many Requests:** API limit exceeded
 
-### UI Xatoliklari
+### UI Errors
 
-- **ErrorBoundary:** Kutilmagan xatoliklarni ushlaydi
-- **Loading states:** Foydalanuvchi tajribasini yaxshilaydi
-- **Error messages:** Aniq va tushunarli xabarlar
+- **ErrorBoundary:** Catches unexpected errors
+- **Loading states:** Improves user experience
+- **Error messages:** Clear and understandable messages
 
-## 📝 Lisensiya
+## 📝 License
 
-MIT License - [LICENSE](LICENSE) faylini ko'ring
+MIT License - See [LICENSE](LICENSE) file
 
-## 🤝 Hissa qo'shish
+## 🤝 Contributing
 
-1. Fork qiling
-2. Feature branch yarating (`git checkout -b feature/amazing-feature`)
-3. Commit qiling (`git commit -m 'Add amazing feature'`)
-4. Push qiling (`git push origin feature/amazing-feature`)
-5. Pull Request yarating
+1. Fork the project
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
 
-## 📞 Bog'lanish
+## 📞 Contact
 
 - **Email:** diyornv@gmail.com
 - **GitHub:** [@your-username](https://github.com/diyornv)
 
 ---
 
-⭐ Bu loyiha foydali bo'lsa, star bering!
+⭐ If this project is helpful, give it a star!
