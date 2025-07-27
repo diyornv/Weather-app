@@ -38,7 +38,7 @@ const TabSystem = ({ current, forecast, statistics, settings }) => {
           </button>
         ))}
       </div>
-      <div className="relative min-h-[250px] md:min-h-[320px] p-2 md:p-4">
+      <div className="relative min-h-[250px] md:min-h-[350px] p-2 md:p-4">
         <div
           key={active}
           className={`absolute inset-0 w-full h-full transition-opacity duration-300 ${
