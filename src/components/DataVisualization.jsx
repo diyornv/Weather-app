@@ -17,7 +17,7 @@ const DataVisualization = ({ data, loading, unit = "metric" }) => {
     return (
       <div className="w-full bg-white dark:bg-[#212529] rounded-xl shadow-md p-4 md:p-6 border border-gray-200 dark:border-gray-600">
         <h2 className="text-lg md:text-xl font-semibold text-[#212529] dark:text-[#f8f9fa] mb-3 text-center">
-          Temperature graph (36 hours)
+          Temperature graph
         </h2>
         <div className="w-full h-44 flex items-center justify-center text-gray-500 dark:text-gray-400 text-sm">
           No data available
